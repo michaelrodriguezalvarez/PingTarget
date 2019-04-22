@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.Net;
+using System.IO;
 
 namespace PingTarget
 {
@@ -104,6 +105,7 @@ namespace PingTarget
                 this.ConmutarEstadoVentanaPrincipal();
                 this.mostro_estado_conectado = false;
                 this.mostro_estado_desconectado = false;
+                this.SalvarConfiguracion();
             }
             catch (System.FormatException fex)
             {
@@ -156,6 +158,34 @@ namespace PingTarget
             this.mostro_estado_desconectado = false;
             this.PosicionarVentana();
             this.ConmutarEstadoVentanaPrincipal();
+            this.CargarConfiguracion();
+        }
+        private void CargarConfiguracion()
+        {
+            try
+            {
+                StreamReader fichero = new StreamReader("PigTarget.conf");
+                textBoxHost.Text = fichero.ReadLine();
+                fichero.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void SalvarConfiguracion()
+        {
+            try
+            {
+                StreamWriter fichero = new StreamWriter("PigTarget.conf");
+                fichero.WriteLine(this.host);
+                fichero.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
