@@ -33,11 +33,9 @@
             this.notifyIconPingTarget = new System.Windows.Forms.NotifyIcon(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxHost = new System.Windows.Forms.TextBox();
-            this.buttonComprobar = new System.Windows.Forms.Button();
             this.timerPingTarget = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTime = new System.Windows.Forms.TextBox();
-            this.buttonCerrar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxHostInternacional = new System.Windows.Forms.TextBox();
             this.timerPingTargetInternacional = new System.Windows.Forms.Timer(this.components);
@@ -45,6 +43,10 @@
             this.labelEstadoNacional = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelEstadoInternacional = new System.Windows.Forms.Label();
+            this.pictureBoxTiempo = new System.Windows.Forms.PictureBox();
+            this.buttonCerrar = new System.Windows.Forms.Button();
+            this.buttonComprobar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIconPingTarget
@@ -61,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 0;
@@ -69,21 +71,11 @@
             // 
             // textBoxHost
             // 
-            this.textBoxHost.Location = new System.Drawing.Point(15, 31);
+            this.textBoxHost.Location = new System.Drawing.Point(136, 6);
             this.textBoxHost.Name = "textBoxHost";
             this.textBoxHost.Size = new System.Drawing.Size(100, 20);
             this.textBoxHost.TabIndex = 1;
             this.textBoxHost.Text = "127.0.0.1";
-            // 
-            // buttonComprobar
-            // 
-            this.buttonComprobar.Location = new System.Drawing.Point(15, 241);
-            this.buttonComprobar.Name = "buttonComprobar";
-            this.buttonComprobar.Size = new System.Drawing.Size(75, 23);
-            this.buttonComprobar.TabIndex = 2;
-            this.buttonComprobar.Text = "Comprobar";
-            this.buttonComprobar.UseVisualStyleBackColor = true;
-            this.buttonComprobar.Click += new System.EventHandler(this.buttonComprobar_Click);
             // 
             // timerPingTarget
             // 
@@ -94,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 129);
+            this.label3.Location = new System.Drawing.Point(6, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 0;
@@ -102,27 +94,17 @@
             // 
             // textBoxTime
             // 
-            this.textBoxTime.Location = new System.Drawing.Point(15, 145);
+            this.textBoxTime.Location = new System.Drawing.Point(136, 71);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(58, 20);
             this.textBoxTime.TabIndex = 1;
             this.textBoxTime.Text = "2";
             // 
-            // buttonCerrar
-            // 
-            this.buttonCerrar.Location = new System.Drawing.Point(116, 241);
-            this.buttonCerrar.Name = "buttonCerrar";
-            this.buttonCerrar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCerrar.TabIndex = 3;
-            this.buttonCerrar.Text = "Cerrar";
-            this.buttonCerrar.UseVisualStyleBackColor = true;
-            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 67);
+            this.label2.Location = new System.Drawing.Point(6, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 13);
             this.label2.TabIndex = 4;
@@ -130,7 +112,7 @@
             // 
             // textBoxHostInternacional
             // 
-            this.textBoxHostInternacional.Location = new System.Drawing.Point(16, 93);
+            this.textBoxHostInternacional.Location = new System.Drawing.Point(136, 38);
             this.textBoxHostInternacional.Name = "textBoxHostInternacional";
             this.textBoxHostInternacional.Size = new System.Drawing.Size(100, 20);
             this.textBoxHostInternacional.TabIndex = 5;
@@ -145,7 +127,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 181);
+            this.label4.Location = new System.Drawing.Point(6, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 6;
@@ -156,7 +138,7 @@
             this.labelEstadoNacional.AutoSize = true;
             this.labelEstadoNacional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEstadoNacional.ForeColor = System.Drawing.Color.Red;
-            this.labelEstadoNacional.Location = new System.Drawing.Point(133, 181);
+            this.labelEstadoNacional.Location = new System.Drawing.Point(133, 106);
             this.labelEstadoNacional.Name = "labelEstadoNacional";
             this.labelEstadoNacional.Size = new System.Drawing.Size(89, 13);
             this.labelEstadoNacional.TabIndex = 6;
@@ -166,7 +148,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 207);
+            this.label6.Location = new System.Drawing.Point(6, 132);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 13);
             this.label6.TabIndex = 6;
@@ -177,17 +159,54 @@
             this.labelEstadoInternacional.AutoSize = true;
             this.labelEstadoInternacional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEstadoInternacional.ForeColor = System.Drawing.Color.Red;
-            this.labelEstadoInternacional.Location = new System.Drawing.Point(132, 207);
+            this.labelEstadoInternacional.Location = new System.Drawing.Point(132, 132);
             this.labelEstadoInternacional.Name = "labelEstadoInternacional";
             this.labelEstadoInternacional.Size = new System.Drawing.Size(89, 13);
             this.labelEstadoInternacional.TabIndex = 6;
             this.labelEstadoInternacional.Text = "Desconectado";
             // 
+            // pictureBoxTiempo
+            // 
+            this.pictureBoxTiempo.Image = global::PingTarget.Properties.Resources.Time_16x16;
+            this.pictureBoxTiempo.Location = new System.Drawing.Point(196, 74);
+            this.pictureBoxTiempo.Name = "pictureBoxTiempo";
+            this.pictureBoxTiempo.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxTiempo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxTiempo.TabIndex = 7;
+            this.pictureBoxTiempo.TabStop = false;
+            // 
+            // buttonCerrar
+            // 
+            this.buttonCerrar.Image = global::PingTarget.Properties.Resources.close_16x16;
+            this.buttonCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCerrar.Location = new System.Drawing.Point(175, 158);
+            this.buttonCerrar.Name = "buttonCerrar";
+            this.buttonCerrar.Size = new System.Drawing.Size(61, 23);
+            this.buttonCerrar.TabIndex = 3;
+            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
+            // 
+            // buttonComprobar
+            // 
+            this.buttonComprobar.Image = global::PingTarget.Properties.Resources.checkbox_16x16;
+            this.buttonComprobar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonComprobar.Location = new System.Drawing.Point(85, 158);
+            this.buttonComprobar.Name = "buttonComprobar";
+            this.buttonComprobar.Size = new System.Drawing.Size(84, 23);
+            this.buttonComprobar.TabIndex = 2;
+            this.buttonComprobar.Text = "Comprobar";
+            this.buttonComprobar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonComprobar.UseVisualStyleBackColor = true;
+            this.buttonComprobar.Click += new System.EventHandler(this.buttonComprobar_Click);
+            // 
             // PingTarget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 276);
+            this.ClientSize = new System.Drawing.Size(245, 193);
+            this.Controls.Add(this.pictureBoxTiempo);
             this.Controls.Add(this.labelEstadoInternacional);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.labelEstadoNacional);
@@ -211,6 +230,7 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PingTarget_FormClosing);
             this.Load += new System.EventHandler(this.PingTarget_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +253,7 @@
         private System.Windows.Forms.Label labelEstadoNacional;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelEstadoInternacional;
+        private System.Windows.Forms.PictureBox pictureBoxTiempo;
     }
 }
 

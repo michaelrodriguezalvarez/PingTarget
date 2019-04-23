@@ -106,6 +106,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="earth_network.ico" />
+    <None Include="Resources\Time_16x16.png" />
+    <None Include="Resources\close_16x16.png" />
+    <None Include="Resources\checkbox_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
