@@ -97,7 +97,7 @@
             this.textBoxTime.Location = new System.Drawing.Point(136, 71);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(58, 20);
-            this.textBoxTime.TabIndex = 1;
+            this.textBoxTime.TabIndex = 3;
             this.textBoxTime.Text = "2";
             // 
             // label2
@@ -115,7 +115,7 @@
             this.textBoxHostInternacional.Location = new System.Drawing.Point(136, 38);
             this.textBoxHostInternacional.Name = "textBoxHostInternacional";
             this.textBoxHostInternacional.Size = new System.Drawing.Size(100, 20);
-            this.textBoxHostInternacional.TabIndex = 5;
+            this.textBoxHostInternacional.TabIndex = 2;
             this.textBoxHostInternacional.Text = "127.0.0.2";
             // 
             // timerPingTargetInternacional
@@ -182,7 +182,7 @@
             this.buttonCerrar.Location = new System.Drawing.Point(175, 158);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(61, 23);
-            this.buttonCerrar.TabIndex = 3;
+            this.buttonCerrar.TabIndex = 5;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCerrar.UseVisualStyleBackColor = true;
@@ -195,7 +195,7 @@
             this.buttonComprobar.Location = new System.Drawing.Point(85, 158);
             this.buttonComprobar.Name = "buttonComprobar";
             this.buttonComprobar.Size = new System.Drawing.Size(84, 23);
-            this.buttonComprobar.TabIndex = 2;
+            this.buttonComprobar.TabIndex = 4;
             this.buttonComprobar.Text = "Comprobar";
             this.buttonComprobar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonComprobar.UseVisualStyleBackColor = true;
