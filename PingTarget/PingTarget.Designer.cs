@@ -38,6 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.buttonCerrar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxHostInternacional = new System.Windows.Forms.TextBox();
+            this.timerPingTargetInternacional = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelEstadoNacional = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelEstadoInternacional = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // notifyIconPingTarget
@@ -56,9 +63,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Host";
+            this.label1.Text = "Host Nacional";
             // 
             // textBoxHost
             // 
@@ -70,7 +77,7 @@
             // 
             // buttonComprobar
             // 
-            this.buttonComprobar.Location = new System.Drawing.Point(15, 120);
+            this.buttonComprobar.Location = new System.Drawing.Point(15, 241);
             this.buttonComprobar.Name = "buttonComprobar";
             this.buttonComprobar.Size = new System.Drawing.Size(75, 23);
             this.buttonComprobar.TabIndex = 2;
@@ -87,7 +94,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 69);
+            this.label3.Location = new System.Drawing.Point(12, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 0;
@@ -95,7 +102,7 @@
             // 
             // textBoxTime
             // 
-            this.textBoxTime.Location = new System.Drawing.Point(15, 85);
+            this.textBoxTime.Location = new System.Drawing.Point(15, 145);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(58, 20);
             this.textBoxTime.TabIndex = 1;
@@ -103,7 +110,7 @@
             // 
             // buttonCerrar
             // 
-            this.buttonCerrar.Location = new System.Drawing.Point(116, 120);
+            this.buttonCerrar.Location = new System.Drawing.Point(116, 241);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(75, 23);
             this.buttonCerrar.TabIndex = 3;
@@ -111,11 +118,82 @@
             this.buttonCerrar.UseVisualStyleBackColor = true;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Host Internacional";
+            // 
+            // textBoxHostInternacional
+            // 
+            this.textBoxHostInternacional.Location = new System.Drawing.Point(16, 93);
+            this.textBoxHostInternacional.Name = "textBoxHostInternacional";
+            this.textBoxHostInternacional.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHostInternacional.TabIndex = 5;
+            this.textBoxHostInternacional.Text = "127.0.0.2";
+            // 
+            // timerPingTargetInternacional
+            // 
+            this.timerPingTargetInternacional.Interval = 2000;
+            this.timerPingTargetInternacional.Tick += new System.EventHandler(this.timerPingTargetInternacional_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 181);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Estado Nacional";
+            // 
+            // labelEstadoNacional
+            // 
+            this.labelEstadoNacional.AutoSize = true;
+            this.labelEstadoNacional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstadoNacional.ForeColor = System.Drawing.Color.Red;
+            this.labelEstadoNacional.Location = new System.Drawing.Point(133, 181);
+            this.labelEstadoNacional.Name = "labelEstadoNacional";
+            this.labelEstadoNacional.Size = new System.Drawing.Size(89, 13);
+            this.labelEstadoNacional.TabIndex = 6;
+            this.labelEstadoNacional.Text = "Desconectado";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 207);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Estado Internacional";
+            // 
+            // labelEstadoInternacional
+            // 
+            this.labelEstadoInternacional.AutoSize = true;
+            this.labelEstadoInternacional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstadoInternacional.ForeColor = System.Drawing.Color.Red;
+            this.labelEstadoInternacional.Location = new System.Drawing.Point(132, 207);
+            this.labelEstadoInternacional.Name = "labelEstadoInternacional";
+            this.labelEstadoInternacional.Size = new System.Drawing.Size(89, 13);
+            this.labelEstadoInternacional.TabIndex = 6;
+            this.labelEstadoInternacional.Text = "Desconectado";
+            // 
             // PingTarget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 155);
+            this.ClientSize = new System.Drawing.Size(230, 276);
+            this.Controls.Add(this.labelEstadoInternacional);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelEstadoNacional);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxHostInternacional);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.buttonComprobar);
             this.Controls.Add(this.textBoxTime);
@@ -148,6 +226,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Button buttonCerrar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxHostInternacional;
+        private System.Windows.Forms.Timer timerPingTargetInternacional;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEstadoNacional;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelEstadoInternacional;
     }
 }
 
