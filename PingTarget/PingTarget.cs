@@ -54,7 +54,7 @@ namespace PingTarget
             }            
         }
 
-        private void MostrarBalloonTip(string pIcono,string pTexto)
+        public void MostrarBalloonTip(string pIcono,string pTexto)
         {
             switch (pIcono)
             {
@@ -65,6 +65,10 @@ namespace PingTarget
                 case "informacion":
                     notifyIconPingTarget.BalloonTipTitle = "Información";
                     notifyIconPingTarget.BalloonTipIcon = ToolTipIcon.Info;
+                    break;
+                case "advertencia":
+                    notifyIconPingTarget.BalloonTipTitle = "Advertencia";
+                    notifyIconPingTarget.BalloonTipIcon = ToolTipIcon.Warning;
                     break;
                 default:
                     notifyIconPingTarget.BalloonTipTitle = "Información";
@@ -193,7 +197,7 @@ namespace PingTarget
         {
             try
             {
-                StreamReader fichero = new StreamReader("PigTarget.conf");
+                StreamReader fichero = new StreamReader("PigTargetNacional.conf");
                 textBoxHost.Text = fichero.ReadLine();
                 fichero.Close();
                 StreamReader fichero_internacional = new StreamReader("PigTargetInternacional.conf");
@@ -210,7 +214,7 @@ namespace PingTarget
         {
             try
             {
-                StreamWriter fichero = new StreamWriter("PigTarget.conf");
+                StreamWriter fichero = new StreamWriter("PigTargetNacional.conf");
                 fichero.WriteLine(this.host);
                 fichero.Close();
                 StreamWriter fichero_internacional = new StreamWriter("PigTargetInternacional.conf");
@@ -288,6 +292,14 @@ namespace PingTarget
                 labelEstadoInternacional.Text = "Desconectado";
                 labelEstadoInternacional.ForeColor = Color.Red;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ConfigurarAlerta configurarAlerta = new ConfigurarAlerta(this);
+            //configurarAlerta.ShowDialog();
+            //configurarAlerta.Location = this.Location;
+            configurarAlerta.Show();
         }
     }
 }

@@ -43,9 +43,11 @@
             this.labelEstadoNacional = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelEstadoInternacional = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxTiempo = new System.Windows.Forms.PictureBox();
             this.buttonCerrar = new System.Windows.Forms.Button();
             this.buttonComprobar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +167,16 @@
             this.labelEstadoInternacional.TabIndex = 6;
             this.labelEstadoInternacional.Text = "Desconectado";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PingTarget.Properties.Resources.bell;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 163);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 18);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // pictureBoxTiempo
             // 
             this.pictureBoxTiempo.Image = global::PingTarget.Properties.Resources.Time_16x16;
@@ -206,6 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 193);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxTiempo);
             this.Controls.Add(this.labelEstadoInternacional);
             this.Controls.Add(this.label6);
@@ -230,6 +243,7 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PingTarget_FormClosing);
             this.Load += new System.EventHandler(this.PingTarget_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -254,6 +268,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelEstadoInternacional;
         private System.Windows.Forms.PictureBox pictureBoxTiempo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
