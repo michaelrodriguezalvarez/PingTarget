@@ -55,29 +55,43 @@ namespace PingTarget
 
         private void buttonConfigurar_Click(object sender, EventArgs e)
         {
-
             if (openFileDialogNacional.SafeFileName == "" && openFileDialogInternacional.SafeFileName == "")
             {
-                this.pingTarget.MostrarBalloonTip("advertencia", "No se han configurado los ficheros de audio para las alertas");
+                if (labelSonidoNacional.Text == "No configurado" && labelSonidoInternacional.Text == "No configurado")
+                {
+                    this.pingTarget.MostrarBalloonTip("advertencia", "No se han configurado los ficheros de audio para las alertas");
+                }
+                else
+                {
+                    this.SalvarConfiguracion();
+                    this.pingTarget.MostrarBalloonTip("informacion", "Se han configurado los ficheros de audio para las alertas");
+                }
             }
             else
             {
                 if (openFileDialogNacional.FileName != "")
                 {
                     string fichero_anterior = this.ObtenerNombreAudioConfigurado("nacional");
-                    EliminarFicheroAudio(fichero_anterior);
+                    if (ComprobarFicherosAudioIguales()==false)
+                    {
+                        EliminarFicheroAudio(fichero_anterior);
+                    }                    
                     SalvarFicheroAudio(openFileDialogNacional);
                 }
 
                 if (openFileDialogInternacional.FileName != "")
                 {
-                    string fichero_anterior = this.ObtenerNombreAudioConfigurado("internacional");
-                    EliminarFicheroAudio(fichero_anterior);
+                    string fichero_anterior = this.ObtenerNombreAudioConfigurado("internacional");                    
+                    if (ComprobarFicherosAudioIguales() == false)
+                    {
+                        EliminarFicheroAudio(fichero_anterior);
+                    }
                     SalvarFicheroAudio(openFileDialogInternacional);
                 }
                 this.SalvarConfiguracion();
                 this.pingTarget.MostrarBalloonTip("informacion", "Se han configurado los ficheros de audio para las alertas");
             }
+            this.Close();
         }
 
         private void SalvarFicheroAudio(OpenFileDialog fileDialog)
@@ -189,6 +203,11 @@ namespace PingTarget
         private void buttonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool ComprobarFicherosAudioIguales()
+        {
+            return (ObtenerNombreAudioConfigurado("nacional") == ObtenerNombreAudioConfigurado("internacional")) ? true : false ;
         }
     }
 }

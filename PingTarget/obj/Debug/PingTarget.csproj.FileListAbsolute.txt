@@ -9,3 +9,14 @@ D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.pdb
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.csprojResolveAssemblyReference.cache
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.ConfigurarAlerta.resources
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\bin\Debug\NAudio.dll
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\PingTarget.exe.config
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.exe
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.pdb
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\PingTarget.exe
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\PingTarget.pdb
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\NAudio.dll
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.csprojResolveAssemblyReference.cache
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.ConfigurarAlerta.resources
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.PingTarget.resources
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.Properties.Resources.resources
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.csproj.GenerateResource.Cache
