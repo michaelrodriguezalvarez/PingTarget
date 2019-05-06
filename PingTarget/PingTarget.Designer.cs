@@ -43,11 +43,11 @@
             this.labelEstadoNacional = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelEstadoInternacional = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxTiempo = new System.Windows.Forms.PictureBox();
             this.buttonCerrar = new System.Windows.Forms.Button();
             this.buttonComprobar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.timerSonidosAlertas = new System.Windows.Forms.Timer(this.components);
+            this.buttonAlertas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +73,7 @@
             // 
             // textBoxHost
             // 
-            this.textBoxHost.Location = new System.Drawing.Point(136, 6);
+            this.textBoxHost.Location = new System.Drawing.Point(122, 6);
             this.textBoxHost.Name = "textBoxHost";
             this.textBoxHost.Size = new System.Drawing.Size(100, 20);
             this.textBoxHost.TabIndex = 1;
@@ -109,12 +109,12 @@
             this.label2.Location = new System.Drawing.Point(6, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Host Internacional";
             // 
             // textBoxHostInternacional
             // 
-            this.textBoxHostInternacional.Location = new System.Drawing.Point(136, 38);
+            this.textBoxHostInternacional.Location = new System.Drawing.Point(122, 38);
             this.textBoxHostInternacional.Name = "textBoxHostInternacional";
             this.textBoxHostInternacional.Size = new System.Drawing.Size(100, 20);
             this.textBoxHostInternacional.TabIndex = 2;
@@ -132,7 +132,7 @@
             this.label4.Location = new System.Drawing.Point(6, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 13);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Estado Nacional";
             // 
             // labelEstadoNacional
@@ -143,7 +143,7 @@
             this.labelEstadoNacional.Location = new System.Drawing.Point(133, 106);
             this.labelEstadoNacional.Name = "labelEstadoNacional";
             this.labelEstadoNacional.Size = new System.Drawing.Size(89, 13);
-            this.labelEstadoNacional.TabIndex = 6;
+            this.labelEstadoNacional.TabIndex = 0;
             this.labelEstadoNacional.Text = "Desconectado";
             // 
             // label6
@@ -153,7 +153,7 @@
             this.label6.Location = new System.Drawing.Point(6, 132);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 13);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Estado Internacional";
             // 
             // labelEstadoInternacional
@@ -164,18 +164,8 @@
             this.labelEstadoInternacional.Location = new System.Drawing.Point(132, 132);
             this.labelEstadoInternacional.Name = "labelEstadoInternacional";
             this.labelEstadoInternacional.Size = new System.Drawing.Size(89, 13);
-            this.labelEstadoInternacional.TabIndex = 6;
+            this.labelEstadoInternacional.TabIndex = 0;
             this.labelEstadoInternacional.Text = "Desconectado";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PingTarget.Properties.Resources.bell;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 163);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 18);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBoxTiempo
             // 
@@ -191,10 +181,10 @@
             // 
             this.buttonCerrar.Image = global::PingTarget.Properties.Resources.close_16x16;
             this.buttonCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCerrar.Location = new System.Drawing.Point(175, 158);
+            this.buttonCerrar.Location = new System.Drawing.Point(162, 158);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(61, 23);
-            this.buttonCerrar.TabIndex = 5;
+            this.buttonCerrar.TabIndex = 6;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCerrar.UseVisualStyleBackColor = true;
@@ -204,21 +194,39 @@
             // 
             this.buttonComprobar.Image = global::PingTarget.Properties.Resources.checkbox_16x16;
             this.buttonComprobar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonComprobar.Location = new System.Drawing.Point(85, 158);
+            this.buttonComprobar.Location = new System.Drawing.Point(72, 158);
             this.buttonComprobar.Name = "buttonComprobar";
             this.buttonComprobar.Size = new System.Drawing.Size(84, 23);
-            this.buttonComprobar.TabIndex = 4;
+            this.buttonComprobar.TabIndex = 5;
             this.buttonComprobar.Text = "Comprobar";
             this.buttonComprobar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonComprobar.UseVisualStyleBackColor = true;
             this.buttonComprobar.Click += new System.EventHandler(this.buttonComprobar_Click);
             // 
+            // timerSonidosAlertas
+            // 
+            this.timerSonidosAlertas.Interval = 500;
+            this.timerSonidosAlertas.Tick += new System.EventHandler(this.timerSonidosAlertas_Tick);
+            // 
+            // buttonAlertas
+            // 
+            this.buttonAlertas.Image = global::PingTarget.Properties.Resources.bell;
+            this.buttonAlertas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAlertas.Location = new System.Drawing.Point(9, 158);
+            this.buttonAlertas.Name = "buttonAlertas";
+            this.buttonAlertas.Size = new System.Drawing.Size(57, 23);
+            this.buttonAlertas.TabIndex = 4;
+            this.buttonAlertas.Text = "Alerta";
+            this.buttonAlertas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAlertas.UseVisualStyleBackColor = true;
+            this.buttonAlertas.Click += new System.EventHandler(this.buttonAlertas_Click);
+            // 
             // PingTarget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 193);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(235, 193);
+            this.Controls.Add(this.buttonAlertas);
             this.Controls.Add(this.pictureBoxTiempo);
             this.Controls.Add(this.labelEstadoInternacional);
             this.Controls.Add(this.label6);
@@ -243,7 +251,6 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PingTarget_FormClosing);
             this.Load += new System.EventHandler(this.PingTarget_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,7 +275,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelEstadoInternacional;
         private System.Windows.Forms.PictureBox pictureBoxTiempo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerSonidosAlertas;
+        private System.Windows.Forms.Button buttonAlertas;
     }
 }
 

@@ -8,3 +8,4 @@ D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.exe
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.pdb
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.csprojResolveAssemblyReference.cache
 D:\MICHAEL\NETWORK\PingTarget\PingTarget\obj\Debug\PingTarget.ConfigurarAlerta.resources
+D:\MICHAEL\NETWORK\PingTarget\PingTarget\bin\Debug\NAudio.dll

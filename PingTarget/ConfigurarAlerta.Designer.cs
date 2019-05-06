@@ -41,6 +41,7 @@
             this.buttonConfigurar = new System.Windows.Forms.Button();
             this.textBoxNacional = new System.Windows.Forms.TextBox();
             this.textBoxInternacional = new System.Windows.Forms.TextBox();
+            this.buttonCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +61,7 @@
             this.label2.Location = new System.Drawing.Point(12, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Sonido para Internacional";
             // 
             // openFileDialogNacional
@@ -75,17 +76,17 @@
             // 
             // buttonCargarSonidoNacional
             // 
-            this.buttonCargarSonidoNacional.Location = new System.Drawing.Point(175, 37);
+            this.buttonCargarSonidoNacional.Location = new System.Drawing.Point(216, 37);
             this.buttonCargarSonidoNacional.Name = "buttonCargarSonidoNacional";
             this.buttonCargarSonidoNacional.Size = new System.Drawing.Size(35, 23);
-            this.buttonCargarSonidoNacional.TabIndex = 3;
+            this.buttonCargarSonidoNacional.TabIndex = 2;
             this.buttonCargarSonidoNacional.Text = "...";
             this.buttonCargarSonidoNacional.UseVisualStyleBackColor = true;
             this.buttonCargarSonidoNacional.Click += new System.EventHandler(this.buttonCargarSonidoNacional_Click);
             // 
             // buttonCargarSonidoInternacional
             // 
-            this.buttonCargarSonidoInternacional.Location = new System.Drawing.Point(174, 109);
+            this.buttonCargarSonidoInternacional.Location = new System.Drawing.Point(215, 109);
             this.buttonCargarSonidoInternacional.Name = "buttonCargarSonidoInternacional";
             this.buttonCargarSonidoInternacional.Size = new System.Drawing.Size(34, 23);
             this.buttonCargarSonidoInternacional.TabIndex = 4;
@@ -99,7 +100,7 @@
             this.labelSonidoNacional.Location = new System.Drawing.Point(15, 64);
             this.labelSonidoNacional.Name = "labelSonidoNacional";
             this.labelSonidoNacional.Size = new System.Drawing.Size(80, 13);
-            this.labelSonidoNacional.TabIndex = 5;
+            this.labelSonidoNacional.TabIndex = 0;
             this.labelSonidoNacional.Text = "No configurado";
             // 
             // labelSonidoInternacional
@@ -108,17 +109,17 @@
             this.labelSonidoInternacional.Location = new System.Drawing.Point(13, 136);
             this.labelSonidoInternacional.Name = "labelSonidoInternacional";
             this.labelSonidoInternacional.Size = new System.Drawing.Size(80, 13);
-            this.labelSonidoInternacional.TabIndex = 6;
+            this.labelSonidoInternacional.TabIndex = 0;
             this.labelSonidoInternacional.Text = "No configurado";
             // 
             // buttonRestablecer
             // 
             this.buttonRestablecer.Image = global::PingTarget.Properties.Resources.delete;
             this.buttonRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRestablecer.Location = new System.Drawing.Point(122, 176);
+            this.buttonRestablecer.Location = new System.Drawing.Point(101, 176);
             this.buttonRestablecer.Name = "buttonRestablecer";
             this.buttonRestablecer.Size = new System.Drawing.Size(88, 23);
-            this.buttonRestablecer.TabIndex = 7;
+            this.buttonRestablecer.TabIndex = 6;
             this.buttonRestablecer.Text = "Restablecer";
             this.buttonRestablecer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRestablecer.UseVisualStyleBackColor = true;
@@ -128,10 +129,10 @@
             // 
             this.buttonConfigurar.Image = global::PingTarget.Properties.Resources.bell;
             this.buttonConfigurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigurar.Location = new System.Drawing.Point(15, 176);
+            this.buttonConfigurar.Location = new System.Drawing.Point(12, 176);
             this.buttonConfigurar.Name = "buttonConfigurar";
             this.buttonConfigurar.Size = new System.Drawing.Size(83, 23);
-            this.buttonConfigurar.TabIndex = 2;
+            this.buttonConfigurar.TabIndex = 5;
             this.buttonConfigurar.Text = "Configurar";
             this.buttonConfigurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonConfigurar.UseVisualStyleBackColor = true;
@@ -141,21 +142,35 @@
             // 
             this.textBoxNacional.Location = new System.Drawing.Point(15, 38);
             this.textBoxNacional.Name = "textBoxNacional";
-            this.textBoxNacional.Size = new System.Drawing.Size(147, 20);
-            this.textBoxNacional.TabIndex = 8;
+            this.textBoxNacional.Size = new System.Drawing.Size(195, 20);
+            this.textBoxNacional.TabIndex = 1;
             // 
             // textBoxInternacional
             // 
             this.textBoxInternacional.Location = new System.Drawing.Point(15, 110);
             this.textBoxInternacional.Name = "textBoxInternacional";
-            this.textBoxInternacional.Size = new System.Drawing.Size(147, 20);
-            this.textBoxInternacional.TabIndex = 9;
+            this.textBoxInternacional.Size = new System.Drawing.Size(195, 20);
+            this.textBoxInternacional.TabIndex = 3;
+            // 
+            // buttonCerrar
+            // 
+            this.buttonCerrar.Image = global::PingTarget.Properties.Resources.close_16x16;
+            this.buttonCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCerrar.Location = new System.Drawing.Point(195, 176);
+            this.buttonCerrar.Name = "buttonCerrar";
+            this.buttonCerrar.Size = new System.Drawing.Size(60, 23);
+            this.buttonCerrar.TabIndex = 7;
+            this.buttonCerrar.Text = "Cerrar";
+            this.buttonCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCerrar.UseVisualStyleBackColor = true;
+            this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
             // ConfigurarAlerta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(226, 220);
+            this.ClientSize = new System.Drawing.Size(264, 220);
+            this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.textBoxInternacional);
             this.Controls.Add(this.textBoxNacional);
             this.Controls.Add(this.buttonRestablecer);
@@ -171,7 +186,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigurarAlerta";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Configurar Alerta";
             this.Load += new System.EventHandler(this.ConfigurarAlerta_Load);
             this.ResumeLayout(false);
@@ -193,5 +208,6 @@
         private System.Windows.Forms.Button buttonRestablecer;
         private System.Windows.Forms.TextBox textBoxNacional;
         private System.Windows.Forms.TextBox textBoxInternacional;
+        private System.Windows.Forms.Button buttonCerrar;
     }
 }
