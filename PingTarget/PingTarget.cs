@@ -337,7 +337,20 @@ namespace PingTarget
             }
             if (audioFile == null)
             {
-                audioFile = new AudioFileReader(ficheroSonido);
+                audioFile = new AudioFileReader(ficheroSonido);                
+
+                if (File.Exists("PigTargetVolumen.conf"))
+                {
+                    StreamReader fichero_volumen = new StreamReader("PigTargetVolumen.conf");
+                    int volumen_almacenado = int.Parse(fichero_volumen.ReadLine());
+                    fichero_volumen.Close();
+                    audioFile.Volume = (volumen_almacenado > 0) ? (float) volumen_almacenado / 100 : 0.0f ;
+                }
+                else
+                {
+                    audioFile.Volume = 1.0f;
+                }
+
                 outputDevice.Init(audioFile);
             }
             outputDevice.Play();

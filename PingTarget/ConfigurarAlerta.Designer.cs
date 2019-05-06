@@ -42,6 +42,9 @@
             this.textBoxNacional = new System.Windows.Forms.TextBox();
             this.textBoxInternacional = new System.Windows.Forms.TextBox();
             this.buttonCerrar = new System.Windows.Forms.Button();
+            this.trackBarVolumen = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarVolumen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -116,10 +119,10 @@
             // 
             this.buttonRestablecer.Image = global::PingTarget.Properties.Resources.delete;
             this.buttonRestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRestablecer.Location = new System.Drawing.Point(101, 176);
+            this.buttonRestablecer.Location = new System.Drawing.Point(98, 213);
             this.buttonRestablecer.Name = "buttonRestablecer";
             this.buttonRestablecer.Size = new System.Drawing.Size(88, 23);
-            this.buttonRestablecer.TabIndex = 6;
+            this.buttonRestablecer.TabIndex = 7;
             this.buttonRestablecer.Text = "Restablecer";
             this.buttonRestablecer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRestablecer.UseVisualStyleBackColor = true;
@@ -129,10 +132,10 @@
             // 
             this.buttonConfigurar.Image = global::PingTarget.Properties.Resources.bell;
             this.buttonConfigurar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigurar.Location = new System.Drawing.Point(12, 176);
+            this.buttonConfigurar.Location = new System.Drawing.Point(9, 213);
             this.buttonConfigurar.Name = "buttonConfigurar";
             this.buttonConfigurar.Size = new System.Drawing.Size(83, 23);
-            this.buttonConfigurar.TabIndex = 5;
+            this.buttonConfigurar.TabIndex = 6;
             this.buttonConfigurar.Text = "Configurar";
             this.buttonConfigurar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonConfigurar.UseVisualStyleBackColor = true;
@@ -156,20 +159,39 @@
             // 
             this.buttonCerrar.Image = global::PingTarget.Properties.Resources.close_16x16;
             this.buttonCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCerrar.Location = new System.Drawing.Point(195, 176);
+            this.buttonCerrar.Location = new System.Drawing.Point(192, 213);
             this.buttonCerrar.Name = "buttonCerrar";
             this.buttonCerrar.Size = new System.Drawing.Size(60, 23);
-            this.buttonCerrar.TabIndex = 7;
+            this.buttonCerrar.TabIndex = 8;
             this.buttonCerrar.Text = "Cerrar";
             this.buttonCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCerrar.UseVisualStyleBackColor = true;
             this.buttonCerrar.Click += new System.EventHandler(this.buttonCerrar_Click);
             // 
+            // trackBarVolumen
+            // 
+            this.trackBarVolumen.Location = new System.Drawing.Point(119, 162);
+            this.trackBarVolumen.Name = "trackBarVolumen";
+            this.trackBarVolumen.Size = new System.Drawing.Size(130, 45);
+            this.trackBarVolumen.TabIndex = 5;
+            this.trackBarVolumen.Value = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Volumen Sonido";
+            // 
             // ConfigurarAlerta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 220);
+            this.ClientSize = new System.Drawing.Size(264, 253);
+            this.Controls.Add(this.trackBarVolumen);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.textBoxInternacional);
             this.Controls.Add(this.textBoxNacional);
@@ -179,6 +201,7 @@
             this.Controls.Add(this.buttonCargarSonidoInternacional);
             this.Controls.Add(this.buttonCargarSonidoNacional);
             this.Controls.Add(this.buttonConfigurar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -189,6 +212,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Configurar Alerta";
             this.Load += new System.EventHandler(this.ConfigurarAlerta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarVolumen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +233,7 @@
         private System.Windows.Forms.TextBox textBoxNacional;
         private System.Windows.Forms.TextBox textBoxInternacional;
         private System.Windows.Forms.Button buttonCerrar;
+        private System.Windows.Forms.TrackBar trackBarVolumen;
+        private System.Windows.Forms.Label label3;
     }
 }

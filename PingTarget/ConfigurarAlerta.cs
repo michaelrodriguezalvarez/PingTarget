@@ -47,6 +47,7 @@ namespace PingTarget
             openFileDialogInternacional.Reset();
             textBoxInternacional.Text = openFileDialogInternacional.FileName;
             labelSonidoInternacional.Text = "No configurado";
+            trackBarVolumen.Value = 10;
             this.SalvarConfiguracion();
             this.pingTarget.MostrarBalloonTip("advertencia", "No se han configurado los ficheros de audio para las alertas");
 
@@ -116,6 +117,17 @@ namespace PingTarget
                 StreamReader fichero_internacional = new StreamReader("PigTargetInternacionalAudio.conf");
                 labelSonidoInternacional.Text = fichero_internacional.ReadLine();
                 fichero_internacional.Close();
+                if (File.Exists("PigTargetVolumen.conf"))
+                {
+                    StreamReader fichero_volumen = new StreamReader("PigTargetVolumen.conf");
+                    string volumen_almacenado = fichero_volumen.ReadLine();
+                    trackBarVolumen.Value = (volumen_almacenado == "0") ? 0 : int.Parse(volumen_almacenado) / 10;
+                    fichero_volumen.Close();
+                }else
+                {
+                    trackBarVolumen.Value = 10;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -133,6 +145,9 @@ namespace PingTarget
                 StreamWriter fichero_internacional = new StreamWriter("PigTargetInternacionalAudio.conf");
                 fichero_internacional.WriteLine(labelSonidoInternacional.Text);
                 fichero_internacional.Close();
+                StreamWriter fichero_volumen = new StreamWriter("PigTargetVolumen.conf");
+                fichero_volumen.WriteLine(trackBarVolumen.Value*10);
+                fichero_volumen.Close();
             }
             catch (Exception ex)
             {
