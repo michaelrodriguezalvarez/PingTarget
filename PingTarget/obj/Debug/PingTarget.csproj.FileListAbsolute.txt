@@ -20,3 +20,4 @@ D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.ConfigurarAlert
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.PingTarget.resources
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.Properties.Resources.resources
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.csproj.GenerateResource.Cache
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\System.Data.SQLite.dll

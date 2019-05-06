@@ -10,7 +10,6 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.IO;
 using NAudio.Wave;
-//using NAudio.Wave.SampleProviders;
 
 namespace PingTarget
 {
@@ -197,7 +196,6 @@ namespace PingTarget
             }
             this.ActualizarEstados();
         }
-
         private void PingTarget_Load(object sender, EventArgs e)
         {
             this.estadoVentana = false;
@@ -211,6 +209,9 @@ namespace PingTarget
             this.ConmutarEstadoVentanaPrincipal();
             this.CargarConfiguracion();
             this.ActualizarEstados();
+
+            Modelo modelo = new Modelo();
+            modelo.InicializarBaseDatos();
         }
         private void CargarConfiguracion()
         {
