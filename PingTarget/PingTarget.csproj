@@ -51,7 +51,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>earth_network.ico</ApplicationIcon>
-  </PropertyGroup>  
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NAudio">
       <HintPath>.\NAudio.dll</HintPath>
@@ -111,8 +111,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="PingTarget_TemporaryKey.pfx" />
-    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,9 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="earth_network.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="earth_connection.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bell.png" />

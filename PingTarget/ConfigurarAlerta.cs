@@ -50,10 +50,10 @@ namespace PingTarget
             this.EliminarFicheroAudio(this.ObtenerNombreAudioConfigurado("internacional"));
             openFileDialogNacional.Reset();
             textBoxNacional.Text = openFileDialogNacional.FileName;
-            labelSonidoNacional.Text = "No configurado";
+            labelSonidoNacional.Text = "No definido";
             openFileDialogInternacional.Reset();
             textBoxInternacional.Text = openFileDialogInternacional.FileName;
-            labelSonidoInternacional.Text = "No configurado";
+            labelSonidoInternacional.Text = "No definido";
             trackBarVolumen.Value = 10;
             this.SalvarConfiguracion();
             this.pingTarget.MostrarBalloonTip("advertencia", "No se han configurado los ficheros de audio para las alertas");
@@ -64,8 +64,9 @@ namespace PingTarget
         {
             if (openFileDialogNacional.SafeFileName == "" && openFileDialogInternacional.SafeFileName == "")
             {
-                if (labelSonidoNacional.Text == "No configurado" && labelSonidoInternacional.Text == "No configurado")
+                if (labelSonidoNacional.Text == "No definido" && labelSonidoInternacional.Text == "No definido")
                 {
+                    this.SalvarConfiguracion();
                     this.pingTarget.MostrarBalloonTip("advertencia", "No se han configurado los ficheros de audio para las alertas");
                 }
                 else
