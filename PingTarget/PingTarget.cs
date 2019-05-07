@@ -418,5 +418,13 @@ namespace PingTarget
             ayuda.TopMost = true;
             ayuda.ShowDialog();
         }
+
+        public void EjecutarNuevaConfiguracionAlerta()
+        {
+            if (timerPingTarget.Enabled == true || timerPingTargetInternacional.Enabled == true)
+            {
+                this.buttonComprobar_Click(null, null);
+            }
+        }
     }
 }

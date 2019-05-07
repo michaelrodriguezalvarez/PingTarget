@@ -99,6 +99,7 @@ namespace PingTarget
                 this.SalvarConfiguracion();
                 this.pingTarget.MostrarBalloonTip("informacion", "Se han configurado los ficheros de audio para las alertas");
             }
+            this.pingTarget.EjecutarNuevaConfiguracionAlerta();
             this.Close();
         }
 
