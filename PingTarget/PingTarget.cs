@@ -15,23 +15,26 @@ namespace PingTarget
 {
     public partial class PingTarget : Form
     {
-        bool estadoVentana;
-        string host;
-        int tiempo;
-        bool mostro_estado_conectado;
-        bool mostro_estado_desconectado;
-        bool cerrar_aplicacion;
-        string host_internacional;
-        bool mostro_estado_conectado_internacional;
-        bool mostro_estado_desconectado_internacional;
-        bool conectado_nacional;
-        bool conectado_internacional;
+        private bool estadoVentana;
+        private string host;
+        private int tiempo;
+        private bool mostro_estado_conectado;
+        private bool mostro_estado_desconectado;
+        private bool cerrar_aplicacion;
+        private string host_internacional;
+        private bool mostro_estado_conectado_internacional;
+        private bool mostro_estado_desconectado_internacional;
+        private bool conectado_nacional;
+        private bool conectado_internacional;
 
-        List<string> sonidos_alertas = new List<string>();
-        bool bandera_reproduciendo_sonido_alerta;
+        private List<string> sonidos_alertas = new List<string>();
+        private bool bandera_reproduciendo_sonido_alerta;
 
         private WaveOutEvent outputDevice;
         private AudioFileReader audioFile;
+
+        private Modelo modelo;
+        private Configuracion configuracion;
 
 
         public PingTarget()
@@ -111,9 +114,9 @@ namespace PingTarget
         {
             try
             {
+                this.tiempo = int.Parse(textBoxTime.Text);
                 if (timerPingTarget.Enabled == false)
-                {
-                    this.tiempo = int.Parse(textBoxTime.Text);
+                {                    
                     this.timerPingTarget.Enabled = true;                    
                     this.timerPingTarget.Interval = this.tiempo * 1000;                    
                     this.timerPingTarget.Start();
@@ -121,13 +124,12 @@ namespace PingTarget
                 }
 
                 if (timerPingTargetInternacional.Enabled == false)
-                {
-                    this.tiempo = int.Parse(textBoxTime.Text);
+                {               
                     this.timerPingTargetInternacional.Enabled = true;
                     this.timerPingTargetInternacional.Interval = this.tiempo * 1000;
                     this.timerPingTargetInternacional.Start();
                 }
-
+                                
                 this.host = textBoxHost.Text;
                 this.host_internacional = textBoxHostInternacional.Text;
                 this.ConmutarEstadoVentanaPrincipal();
@@ -139,9 +141,9 @@ namespace PingTarget
                 this.conectado_internacional = false;
                 this.SalvarConfiguracion();
             }
-            catch (System.FormatException fex)
-            {
-                textBoxTime.Text = "2";
+            catch (System.FormatException)
+            {   
+                textBoxTime.Text = configuracion.Tiempo.ToString();
                 this.MostrarBalloonTip("error", "Especifique el tiempo en segundos correctamente.");
             }
         }       
@@ -184,7 +186,7 @@ namespace PingTarget
                     }
                 }
             }
-            catch (System.Net.NetworkInformation.PingException pex)
+            catch (System.Net.NetworkInformation.PingException)
             {
                 if (this.mostro_estado_desconectado == false)
                 {
@@ -208,25 +210,25 @@ namespace PingTarget
             this.PosicionarVentana();
             this.ConmutarEstadoVentanaPrincipal();
             this.CargarConfiguracion();
-            this.ActualizarEstados();
-
-            Modelo modelo = new Modelo();
-            modelo.InicializarBaseDatos();
+            this.ActualizarEstados();            
         }
         private void CargarConfiguracion()
         {
             try
             {
-                StreamReader fichero = new StreamReader("PigTargetNacional.conf");
-                textBoxHost.Text = fichero.ReadLine();
-                fichero.Close();
-                StreamReader fichero_internacional = new StreamReader("PigTargetInternacional.conf");
-                textBoxHostInternacional.Text = fichero_internacional.ReadLine();
-                fichero_internacional.Close();
+                if (object.Equals(this.modelo,null))
+                {
+                    this.modelo = new Modelo();                    
+                }
+                this.configuracion = modelo.ObtenerTodaLaConfiguracion();
+                textBoxHost.Text = configuracion.Host_nacional;
+                textBoxHostInternacional.Text = configuracion.Host_internacional;
+                textBoxTime.Text = configuracion.Tiempo.ToString();
+
             }
             catch (Exception ex)
             {
-
+                this.MostrarBalloonTip("error", ex.Message);
             }
         }
 
@@ -234,16 +236,15 @@ namespace PingTarget
         {
             try
             {
-                StreamWriter fichero = new StreamWriter("PigTargetNacional.conf");
-                fichero.WriteLine(this.host);
-                fichero.Close();
-                StreamWriter fichero_internacional = new StreamWriter("PigTargetInternacional.conf");
-                fichero_internacional.WriteLine(this.host_internacional);
-                fichero_internacional.Close();
+                this.configuracion = modelo.ObtenerTodaLaConfiguracion();
+                this.configuracion.Host_nacional = this.host;
+                this.configuracion.Host_internacional = this.host_internacional;
+                this.configuracion.Tiempo = this.tiempo;
+                this.modelo.GuardarConfiguracion(this.configuracion);
             }
             catch (Exception ex)
             {
-
+                this.MostrarBalloonTip("error", ex.Message);
             }
         }
 
@@ -285,7 +286,7 @@ namespace PingTarget
                     }
                 }
             }
-            catch (System.Net.NetworkInformation.PingException pex)
+            catch (System.Net.NetworkInformation.PingException)
             {
                 if (this.mostro_estado_desconectado_internacional == false)
                 {
@@ -323,12 +324,7 @@ namespace PingTarget
                 labelEstadoInternacional.ForeColor = Color.Red;
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+ 
         private void ReproducirSonido(string ficheroSonido)
         {
             if (outputDevice == null)
@@ -338,20 +334,17 @@ namespace PingTarget
             }
             if (audioFile == null)
             {
-                audioFile = new AudioFileReader(ficheroSonido);                
+                audioFile = new AudioFileReader(ficheroSonido);
 
-                if (File.Exists("PigTargetVolumen.conf"))
-                {
-                    StreamReader fichero_volumen = new StreamReader("PigTargetVolumen.conf");
-                    int volumen_almacenado = int.Parse(fichero_volumen.ReadLine());
-                    fichero_volumen.Close();
-                    audioFile.Volume = (volumen_almacenado > 0) ? (float) volumen_almacenado / 100 : 0.0f ;
-                }
-                else
-                {
-                    audioFile.Volume = 1.0f;
-                }
 
+                if (object.Equals(this.modelo, null))
+                {
+                    this.modelo = new Modelo();
+                }
+                List<string> resultado_campos_valores_configuracion = this.modelo.ObtenerCamposValoresConfiguracion(new string[] { "Volumen" });
+
+                int volumen_almacenado = int.Parse(resultado_campos_valores_configuracion.ElementAt(1).ToString());
+                audioFile.Volume = (volumen_almacenado > 0) ? (float)volumen_almacenado / 100 : 0.0f;
                 outputDevice.Init(audioFile);
             }
             outputDevice.Play();
@@ -375,22 +368,20 @@ namespace PingTarget
             {
                 if (contexto == "nacional")
                 {
-                    StreamReader fichero = new StreamReader("PigTargetNacionalAudio.conf");
-                    sonido = fichero.ReadLine();
-                    fichero.Close();
+                    List<string> resultado_campos_valores_configuracion = this.modelo.ObtenerCamposValoresConfiguracion(new string[] { "Sonido_nacional" });
+                    sonido = resultado_campos_valores_configuracion.ElementAt(1).ToString();
                 }
                 else
                 {
-                    StreamReader fichero_internacional = new StreamReader("PigTargetInternacionalAudio.conf");
-                    sonido = fichero_internacional.ReadLine();
-                    fichero_internacional.Close();
-                }
-                return sonido;
+                    List<string> resultado_campos_valores_configuracion = this.modelo.ObtenerCamposValoresConfiguracion(new string[] { "Sonido_internacional" });
+                    sonido = resultado_campos_valores_configuracion.ElementAt(1).ToString();
+                }               
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return sonido;             
-            }            
+                this.MostrarBalloonTip("error", ex.Message);
+            }
+            return sonido;
         }
 
         private void timerSonidosAlertas_Tick(object sender, EventArgs e)
@@ -417,8 +408,15 @@ namespace PingTarget
             ConfigurarAlerta configurarAlerta = new ConfigurarAlerta(this);
             configurarAlerta.StartPosition = FormStartPosition.CenterParent;
             configurarAlerta.TopMost = true;
-            configurarAlerta.ShowDialog();
-            
+            configurarAlerta.ShowDialog();            
+        }
+
+        private void PingTarget_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            Ayuda ayuda = new Ayuda();
+            ayuda.StartPosition = FormStartPosition.CenterParent;
+            ayuda.TopMost = true;
+            ayuda.ShowDialog();
         }
     }
 }

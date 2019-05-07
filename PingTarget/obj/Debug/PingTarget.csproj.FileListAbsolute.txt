@@ -21,3 +21,4 @@ D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.PingTarget.reso
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.Properties.Resources.resources
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.csproj.GenerateResource.Cache
 D:\MICHAEL\Desarrollo\PingTarget\PingTarget\bin\Debug\System.Data.SQLite.dll
+D:\MICHAEL\Desarrollo\PingTarget\PingTarget\obj\Debug\PingTarget.Ayuda.resources

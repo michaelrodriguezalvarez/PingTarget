@@ -13,10 +13,17 @@ namespace PingTarget
     public partial class ConfigurarAlerta : Form
     {
         private PingTarget pingTarget;
+        private Modelo modelo;
+        private Configuracion configuracion;
         public ConfigurarAlerta(PingTarget pingTarget)
         {
             InitializeComponent();
             this.pingTarget = pingTarget;
+            if (object.Equals(this.modelo, null))
+            {
+                this.modelo = new Modelo();
+            }
+            this.configuracion = modelo.ObtenerTodaLaConfiguracion();
         }
 
         private void buttonCargarSonidoNacional_Click(object sender, EventArgs e)
@@ -100,7 +107,7 @@ namespace PingTarget
             {
                 File.Copy(fileDialog.FileName, fileDialog.SafeFileName, true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.pingTarget.MostrarBalloonTip("error", "No se pudo guardar el fichero de audio");
             }
@@ -115,7 +122,7 @@ namespace PingTarget
                     File.Delete(nombreFichero);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 this.pingTarget.MostrarBalloonTip("error", "No se pudo remover el fichero de audio");
             }
@@ -125,27 +132,16 @@ namespace PingTarget
         {
             try
             {
-                StreamReader fichero = new StreamReader("PigTargetNacionalAudio.conf");
-                labelSonidoNacional.Text = fichero.ReadLine();
-                fichero.Close();
-                StreamReader fichero_internacional = new StreamReader("PigTargetInternacionalAudio.conf");
-                labelSonidoInternacional.Text = fichero_internacional.ReadLine();
-                fichero_internacional.Close();
-                if (File.Exists("PigTargetVolumen.conf"))
-                {
-                    StreamReader fichero_volumen = new StreamReader("PigTargetVolumen.conf");
-                    string volumen_almacenado = fichero_volumen.ReadLine();
-                    trackBarVolumen.Value = (volumen_almacenado == "0") ? 0 : int.Parse(volumen_almacenado) / 10;
-                    fichero_volumen.Close();
-                }else
-                {
-                    trackBarVolumen.Value = 10;
-                }
-                
+                this.configuracion = this.modelo.ObtenerTodaLaConfiguracion();
+
+                labelSonidoNacional.Text = this.configuracion.Sonido_nacional;
+                labelSonidoInternacional.Text = this.configuracion.Sonido_internacional;
+                int volumen_almacenado = this.configuracion.Volumen;
+                trackBarVolumen.Value = (volumen_almacenado == 0) ? 0 : (volumen_almacenado) / 10;                
             }
             catch (Exception ex)
             {
-
+                this.pingTarget.MostrarBalloonTip("error", ex.Message);
             }
         }
 
@@ -153,19 +149,17 @@ namespace PingTarget
         {
             try
             {
-                StreamWriter fichero = new StreamWriter("PigTargetNacionalAudio.conf");
-                fichero.WriteLine(labelSonidoNacional.Text);
-                fichero.Close();
-                StreamWriter fichero_internacional = new StreamWriter("PigTargetInternacionalAudio.conf");
-                fichero_internacional.WriteLine(labelSonidoInternacional.Text);
-                fichero_internacional.Close();
-                StreamWriter fichero_volumen = new StreamWriter("PigTargetVolumen.conf");
-                fichero_volumen.WriteLine(trackBarVolumen.Value*10);
-                fichero_volumen.Close();
+                this.configuracion = this.modelo.ObtenerTodaLaConfiguracion();
+
+                this.configuracion.Sonido_nacional = labelSonidoNacional.Text;
+                this.configuracion.Sonido_internacional = labelSonidoInternacional.Text;
+                this.configuracion.Volumen = trackBarVolumen.Value * 10;
+
+                this.modelo.GuardarConfiguracion(this.configuracion);
             }
             catch (Exception ex)
             {
-
+                this.pingTarget.MostrarBalloonTip("error", ex.Message);
             }
         }
 
@@ -175,29 +169,26 @@ namespace PingTarget
         }
 
         private string ObtenerNombreAudioConfigurado(string objetivo)
-        {
+        {  string nombre = "No definido";
             try
-            {
-                string nombre = "";
+            {                
                 if (objetivo == "nacional")
                 {
-                    StreamReader fichero = new StreamReader("PigTargetNacionalAudio.conf");
-                    nombre = fichero.ReadLine();
-                    fichero.Close();
+                    List<string> resultado_campos_valores_configuracion = this.modelo.ObtenerCamposValoresConfiguracion(new string[] { "Sonido_nacional" });
+                    nombre = resultado_campos_valores_configuracion.ElementAt(1).ToString();
                 }
                 else
                 {
-                    StreamReader fichero_internacional = new StreamReader("PigTargetInternacionalAudio.conf");
-                    nombre = fichero_internacional.ReadLine();
-                    fichero_internacional.Close();
+                    List<string> resultado_campos_valores_configuracion = this.modelo.ObtenerCamposValoresConfiguracion(new string[] { "Sonido_internacional" });
+                    nombre = resultado_campos_valores_configuracion.ElementAt(1).ToString();
                 }
-                return nombre;
+                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return "";           
+                this.pingTarget.MostrarBalloonTip("error", "Error al cargar la configuración relacionada con el audio.");           
             }
-
+            return nombre;
         }
 
         private void buttonCerrar_Click(object sender, EventArgs e)

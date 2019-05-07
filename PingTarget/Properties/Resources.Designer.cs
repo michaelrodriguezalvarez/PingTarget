@@ -103,16 +103,6 @@ namespace PingTarget.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap earth_connection {
-            get {
-                object obj = ResourceManager.GetObject("earth_connection", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap earth_network {
             get {
                 object obj = ResourceManager.GetObject("earth_network", resourceCulture);
