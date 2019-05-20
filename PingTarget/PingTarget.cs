@@ -114,7 +114,7 @@ namespace PingTarget
         {
             try
             {
-                this.tiempo = int.Parse(textBoxTime.Text);
+                this.tiempo = int.Parse(numericUpDownTime.Value.ToString());
                 if (timerPingTarget.Enabled == false)
                 {                    
                     this.timerPingTarget.Enabled = true;                    
@@ -145,7 +145,7 @@ namespace PingTarget
             }
             catch (System.FormatException)
             {   
-                textBoxTime.Text = configuracion.Tiempo.ToString();
+                numericUpDownTime.Value = decimal.Parse(configuracion.Tiempo.ToString());
                 this.MostrarBalloonTip("error", "Especifique el tiempo en segundos correctamente.");
             }
         }       
@@ -225,7 +225,7 @@ namespace PingTarget
                 this.configuracion = modelo.ObtenerTodaLaConfiguracion();
                 textBoxHost.Text = configuracion.Host_nacional;
                 textBoxHostInternacional.Text = configuracion.Host_internacional;
-                textBoxTime.Text = configuracion.Tiempo.ToString();
+                numericUpDownTime.Value = decimal.Parse(configuracion.Tiempo.ToString());
 
             }
             catch (Exception ex)

@@ -35,7 +35,6 @@
             this.textBoxHost = new System.Windows.Forms.TextBox();
             this.timerPingTarget = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxTime = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxHostInternacional = new System.Windows.Forms.TextBox();
             this.timerPingTargetInternacional = new System.Windows.Forms.Timer(this.components);
@@ -50,7 +49,9 @@
             this.buttonAlertas = new System.Windows.Forms.Button();
             this.labelEnunciadoEstado = new System.Windows.Forms.Label();
             this.labelEstado = new System.Windows.Forms.Label();
+            this.numericUpDownTime = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIconPingTarget
@@ -95,14 +96,6 @@
             this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tiempo (Segundos)";
-            // 
-            // textBoxTime
-            // 
-            this.textBoxTime.Location = new System.Drawing.Point(136, 71);
-            this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.Size = new System.Drawing.Size(58, 20);
-            this.textBoxTime.TabIndex = 3;
-            this.textBoxTime.Text = "2";
             // 
             // label2
             // 
@@ -244,11 +237,34 @@
             this.labelEstado.TabIndex = 9;
             this.labelEstado.Text = "Inactivo";
             // 
+            // numericUpDownTime
+            // 
+            this.numericUpDownTime.Location = new System.Drawing.Point(135, 72);
+            this.numericUpDownTime.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.numericUpDownTime.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTime.Name = "numericUpDownTime";
+            this.numericUpDownTime.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDownTime.TabIndex = 10;
+            this.numericUpDownTime.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
             // PingTarget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 209);
+            this.Controls.Add(this.numericUpDownTime);
             this.Controls.Add(this.labelEstado);
             this.Controls.Add(this.labelEnunciadoEstado);
             this.Controls.Add(this.buttonAlertas);
@@ -261,7 +277,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCerrar);
             this.Controls.Add(this.buttonComprobar);
-            this.Controls.Add(this.textBoxTime);
             this.Controls.Add(this.textBoxHost);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -279,6 +294,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PingTarget_FormClosing);
             this.Load += new System.EventHandler(this.PingTarget_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +308,6 @@
         private System.Windows.Forms.Button buttonComprobar;
         private System.Windows.Forms.Timer timerPingTarget;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Button buttonCerrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxHostInternacional;
@@ -306,6 +321,7 @@
         private System.Windows.Forms.Button buttonAlertas;
         private System.Windows.Forms.Label labelEnunciadoEstado;
         private System.Windows.Forms.Label labelEstado;
+        private System.Windows.Forms.NumericUpDown numericUpDownTime;
     }
 }
 
