@@ -140,6 +140,8 @@ namespace PingTarget
                 this.conectado_nacional = false;
                 this.conectado_internacional = false;
                 this.SalvarConfiguracion();
+                labelEstado.Text = "Activo";
+                labelEstado.ForeColor = Color.Green;
             }
             catch (System.FormatException)
             {   

@@ -48,6 +48,8 @@
             this.buttonComprobar = new System.Windows.Forms.Button();
             this.timerSonidosAlertas = new System.Windows.Forms.Timer(this.components);
             this.buttonAlertas = new System.Windows.Forms.Button();
+            this.labelEnunciadoEstado = new System.Windows.Forms.Label();
+            this.labelEstado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTiempo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,11 +223,34 @@
             this.buttonAlertas.UseVisualStyleBackColor = true;
             this.buttonAlertas.Click += new System.EventHandler(this.buttonAlertas_Click);
             // 
+            // labelEnunciadoEstado
+            // 
+            this.labelEnunciadoEstado.AutoSize = true;
+            this.labelEnunciadoEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnunciadoEstado.Location = new System.Drawing.Point(121, 190);
+            this.labelEnunciadoEstado.Name = "labelEnunciadoEstado";
+            this.labelEnunciadoEstado.Size = new System.Drawing.Size(50, 13);
+            this.labelEnunciadoEstado.TabIndex = 8;
+            this.labelEnunciadoEstado.Text = "Estado:";
+            // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstado.ForeColor = System.Drawing.Color.Red;
+            this.labelEstado.Location = new System.Drawing.Point(171, 190);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(53, 13);
+            this.labelEstado.TabIndex = 9;
+            this.labelEstado.Text = "Inactivo";
+            // 
             // PingTarget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 193);
+            this.ClientSize = new System.Drawing.Size(235, 209);
+            this.Controls.Add(this.labelEstado);
+            this.Controls.Add(this.labelEnunciadoEstado);
             this.Controls.Add(this.buttonAlertas);
             this.Controls.Add(this.pictureBoxTiempo);
             this.Controls.Add(this.labelEstadoInternacional);
@@ -279,6 +304,8 @@
         private System.Windows.Forms.PictureBox pictureBoxTiempo;
         private System.Windows.Forms.Timer timerSonidosAlertas;
         private System.Windows.Forms.Button buttonAlertas;
+        private System.Windows.Forms.Label labelEnunciadoEstado;
+        private System.Windows.Forms.Label labelEstado;
     }
 }
 
